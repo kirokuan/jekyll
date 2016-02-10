@@ -30,6 +30,7 @@ url: http://kirokuan.github.com/
 permalink: pretty
 
 comments :
+
   facebook :
     appid : 123
     num_posts: 5
