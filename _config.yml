@@ -30,11 +30,12 @@ url: http://kirokuan.github.com/
 permalink: pretty
 
 comments :
+  provider : facebook
   facebook :
     appid : 123
     num_posts: 5
     width: 800
-    colorscheme: light
+    colorscheme: dark
 
 # How many articles do you wish to appear on the front page:
 paginate: 3
