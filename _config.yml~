@@ -14,6 +14,13 @@ author_email: guankiro@gmail.com
 # for example you want links like /categories/category1 instead of /category1
 category_dir: /
 
+social:
+  github: kirokuan
+  stackoverflow: 'http://stackoverflow.com/users/1330995/kiro'
+  linkedin:
+  instagram: ''
+  lastfm: ''
+  rss: feed.xml
 
 baseurl: jekyll
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
