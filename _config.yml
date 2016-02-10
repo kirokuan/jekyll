@@ -15,7 +15,7 @@ author_email: guankiro@gmail.com
 category_dir: /
 
 
-baseurl: /jekyll
+baseurl: jekyll
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 url: http://kirokuan.github.com/
 
@@ -29,7 +29,7 @@ url: http://kirokuan.github.com/
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: pretty
 
-comments :
+comments: true
   provider : disqus
   disqus :
     short_name : kirokuan
