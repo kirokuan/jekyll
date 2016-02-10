@@ -59,3 +59,31 @@ So we can use in any enum  GetDescription()
 if DescriptionAttribute is not present, then it use Enum.ToString() as default description.
 and if we need to convert string to enum we can use ParseFromDescription<T>().
 
+We can verify with test:
+
+{% highlight csharp %}
+    [TestFixture]
+    class DescriptionAttributeTest
+    {
+        public enum Test
+        {
+            [Description("xyz")]
+            test1,
+            test2,
+        }
+
+        [TestCase(Test.test1, ExpectedResult = "xyz")]
+        [TestCase(Test.test2, ExpectedResult = "test2")]
+        public string TestDescriptionAttruibute(Test t)
+        {
+           return t.GetDescription();  
+        }
+        [TestCase("xyz", ExpectedResult = Test.test1)]
+        [TestCase("test2", ExpectedResult = Test.test2)]
+        public Test TestDescriptionAttruibute(string str)
+        {
+            Test t = Test.test1;
+            return t.ParseFromDescription<Test>(str);
+        }
+    }
+{% endhighlight %}

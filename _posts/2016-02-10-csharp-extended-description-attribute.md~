@@ -20,6 +20,8 @@ Define a Attribute with string property
 
 Extend the method of enum, so that all enum can use method GetDescription
 
+
+{% highlight csharp %}
     public static class ExtendEnum
     {
         public static string GetDescription(this Enum e)
@@ -51,6 +53,7 @@ Extend the method of enum, so that all enum can use method GetDescription
                 Enum.Parse(typeT, description, true);
         }
     }
+{% endhighlight %}
 
 So we can use in any enum  GetDescription()
 if DescriptionAttribute is not present, then it use Enum.ToString() as default description.
