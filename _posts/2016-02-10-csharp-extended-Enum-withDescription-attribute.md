@@ -3,7 +3,7 @@ layout: post
 title: "Extend Enum to use Description Attribute"
 date: 2016-02-10 23:04:06
 tags: C# Enum
-description: First Post to celebrate the blog done
+description: how to extend enum method to make it can use description from attribute
 ---
 
 Define a Attribute with string property

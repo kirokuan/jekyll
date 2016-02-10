@@ -54,4 +54,7 @@ Extend the method of enum, so that all enum can use method GetDescription
     }
 {% endhighlight %}
 
+So we can use in any enum  GetDescription()
+if DescriptionAttribute is not present, then it use Enum.ToString() as default description.
+and if we need to convert string to enum we can use ParseFromDescription<T>().
 
