@@ -29,16 +29,8 @@ url: http://kirokuan.github.com/
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: pretty
 
-comments :
-  provider : disqus
-  disqus :
-    short_name : kirokuan
-  facebook :
-    appid : 123
-    num_posts: 5
-    width: 800
-    colorscheme: dark
-
+disqus: kirokuan
+comments: true
 # How many articles do you wish to appear on the front page:
 paginate: 3
 gems: [jekyll-paginate]

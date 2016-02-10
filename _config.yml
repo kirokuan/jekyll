@@ -14,6 +14,13 @@ author_email: guankiro@gmail.com
 # for example you want links like /categories/category1 instead of /category1
 category_dir: /
 
+social:
+  github: kirokuan
+  stackoverflow: 'http://stackoverflow.com/users/1330995/kiro'
+  linkedin:
+  instagram: ''
+  lastfm: ''
+  rss: feed.xml
 
 baseurl: jekyll
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
@@ -29,16 +36,8 @@ url: http://kirokuan.github.com/
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: pretty
 
+disqus: kirokuan
 comments: true
-  provider : disqus
-  disqus :
-    short_name : kirokuan
-  facebook :
-    appid : 123
-    num_posts: 5
-    width: 800
-    colorscheme: dark
-
 # How many articles do you wish to appear on the front page:
 paginate: 3
 gems: [jekyll-paginate]
