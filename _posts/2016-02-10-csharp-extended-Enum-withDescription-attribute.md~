@@ -1,13 +1,57 @@
 ---
 layout: post
-title: "First Post"
-date: 2016-02-10 09:20:06
-tags: jekyll
+title: "Extend Enum to use Description Attribute"
+date: 2016-02-10 23:04:06
+tags: C# Enum
 description: First Post to celebrate the blog done
 ---
 
-Finally, Jekyll can run in github ,which i tried before but failed. Today I spent 4 or hrs to make it work. 
+Define a Attribute with string property
+{% highlight csharp %}
+    public class DescriptionAttribute : Attribute
+    {
+        public string Description { get; set; }
 
-I stunk at first place that the page can't be rendered properly, eventually i came out that there should not be blank before 3 dash marks. And i tried another theme, it looks good and support to highlight programming syntax which i need most . However it is little troublesome to copy template and edit it whenever i need to publish new posts. And there is no Chinese input in my virtual box, that's why  i can only type in English.
+        public DescriptionAttribute(string desp)
+        {
+            Description = desp;
+        }
+    }
+{% endhighlight %}
 
-Anyway, i will try to move some notes i used to make in my own site.
+Extend the method of enum, so that all enum can use method GetDescription
+{% highlight csharp %}
+    public static class ExtendEnum
+    {
+        public static string GetDescription(this Enum e)
+        {
+            if (e == null) return null;
+            var memInfo = e.GetType().GetMember(e.ToString());
+            var attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false).Where(a => a is DescriptionAttribute).Cast<DescriptionAttribute>().ToList();
+            if (attributes.Any())
+                return attributes[0].Description;
+            return e.ToString();
+        }
+        public static T ParseFromDescription<T>(this Enum e, string description)
+        {
+            var typeT = typeof(T);
+            var enumList = Enum.GetValues(typeT).Cast<T>();
+            foreach (var x in from x in enumList
+                              let memInfo = typeT.GetMember(x.ToString())
+                              from m in memInfo
+                              let attributes = memInfo[0].GetCustomAttributes(typeof		(DescriptionAttribute), false)
+                .Where(a => a is DescriptionAttribute)
+                .Cast<DescriptionAttribute>()
+                .ToList()
+                              where attributes.Any() && attributes[0].Description == description
+                              select x)
+            {
+                return x;
+            }
+            return (T)
+                Enum.Parse(typeT, description, true);
+        }
+    }
+{% endhighlight %}
+
+
