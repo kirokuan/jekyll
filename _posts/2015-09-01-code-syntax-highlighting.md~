@@ -68,12 +68,10 @@ private String getToken(HttpClient client) throws UnsupportedEncodingException{
 
 C#
 {% highlight csharp %}
-    public class DescriptionAttribute : Attribute
-    {
+    public class DescriptionAttribute : Attribute{
         public string Description { get; set; }
 
-        public DescriptionAttribute(string desp)
-        {
+        public DescriptionAttribute(string desp){
             Description = desp;
         }
     }
