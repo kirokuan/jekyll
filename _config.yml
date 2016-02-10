@@ -30,7 +30,7 @@ url: http://kirokuan.github.com/
 permalink: pretty
 
 comments :
-  provider : disque
+  provider : disqus
   disqus :
     short_name : kirokuan
   facebook :
