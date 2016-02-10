@@ -7,16 +7,17 @@ description: how to extend enum method to make it can use description from attri
 ---
 
 Define a Attribute with string property
+
 {% highlight csharp %}
     public class DescriptionAttribute : Attribute {
-        public string Description;
-
-        public DescriptionAttribute(string desp){
-
+        public string Description {get;set;}
+        public DescriptionAttribute(string desp)
+	{
             Description = desp;
         }
     }
 {% endhighlight %}
+
 Extend the method of enum, so that all enum can use method GetDescription
 
     public static class ExtendEnum
