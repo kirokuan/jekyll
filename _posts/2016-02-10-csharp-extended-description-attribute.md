@@ -8,8 +8,7 @@ description: how to extend enum method to make it can use description from attri
 
 Define a Attribute with string property
 {% highlight csharp %}
-    public class DescriptionAttribute : Attribute
-    {
+    public class DescriptionAttribute : Attribute {
         public string Description;
 
         public DescriptionAttribute(string desp){
