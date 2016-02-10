@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Extend Enum to use Description Attribute"
-date: 2016-02-10 03:04:06
+date: 2016-02-10 12:04:06
 tags: csharp Enum
 description: how to extend enum method to make it can use description from attribute
 ---
 
 Define a Attribute with string property
-{% highlight csharp %}
+
     public class DescriptionAttribute : Attribute
     {
         public string Description;
@@ -17,10 +17,9 @@ Define a Attribute with string property
             Description = desp;
         }
     }
-{% endhighlight %}
 
 Extend the method of enum, so that all enum can use method GetDescription
-{% highlight csharp %}
+
     public static class ExtendEnum
     {
         public static string GetDescription(this Enum e)
@@ -52,7 +51,6 @@ Extend the method of enum, so that all enum can use method GetDescription
                 Enum.Parse(typeT, description, true);
         }
     }
-{% endhighlight %}
 
 So we can use in any enum  GetDescription()
 if DescriptionAttribute is not present, then it use Enum.ToString() as default description.
