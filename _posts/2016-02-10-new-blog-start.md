@@ -2,8 +2,8 @@
 layout: post
 title: "First Post"
 date: 2016-02-10 09:20:06
-tags: code jekyll
-description: Sample post showing how code samples would look like
+tags: jekyll
+description: First Post to celebrate the blog done
 ---
 
 Finally, Jekyll can run in github ,which i tried before but failed. Today I spent 4 or hrs to make it work. 
