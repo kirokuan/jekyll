@@ -35,7 +35,7 @@ comments :
     appid : 123
     num_posts: 5
     width: 800
-    colorscheme: darl
+    colorscheme: dark
 
 # How many articles do you wish to appear on the front page:
 paginate: 3
