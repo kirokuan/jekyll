@@ -15,7 +15,7 @@ perl -l -ne '/(u[A-Za-z0-9]{8}),(u[A-Za-z0-9]{8})/g && print $1.",".$2' week*.cs
 for simpler case, we only find certain text in files 
 
 
-{% highlight %}
+{% highlight bash %}
   cat week*.csv | grep 'test' 
 {% endhighlight %}
 

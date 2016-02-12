@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Find Matched lines in Linux"
-date: 2016-02-12 19:04:06
+date: 2016-02-12 11:04:06
 tags: perl linux grep regexp
 description: Find Matched lines in Linux
 ---
