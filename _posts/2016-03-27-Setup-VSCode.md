@@ -25,7 +25,7 @@ If all you need is build command,jsut use
      "args":[".","-p","--removeComments"]
 }
 {% endhighlight json %}
-use ctrl+shift+b can trigger the build,
+use `Ctrl`{: .key}+`Shift`{:.key}+`B`{:.key} can trigger the build,
 
 
 if you need you project can be tested upon the hotkey , can use the config like
@@ -57,4 +57,4 @@ if you need you project can be tested upon the hotkey , can use the config like
 }  
 {% endhighlight json %}
 
-once ctrl+shift+t clicked, the task with  "isTestCommand": true will be triggered.
+once `Ctrl`{: .key}+`Shift`{:.key}+`T`{:.key} clicked, the task with  "isTestCommand": true will be triggered.
