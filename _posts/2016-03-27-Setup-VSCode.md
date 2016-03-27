@@ -54,7 +54,7 @@ if you need you project can be tested upon the hotkey , can use the config like
             "args": ["chutzpah.console.exe D:\\testScript\\Nike-wl\\Nike-wl\\NikeWLUnitTest\\"]
         }
     ]
-}
+}  
 {% endhighlight json %}
 
 once ctrl+shift+t clicked, the task with  "isTestCommand": true will be triggered.
