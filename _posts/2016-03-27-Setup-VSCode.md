@@ -10,7 +10,7 @@ Recently, we started to convert old js projects to tyescript for better maintain
 
 we try to use VSCode to make it easier to build and test.
 
-For every project, VSCode allows the user to configure how to build and test (or say that it never defines how you build your project), Press F1 and find "task" and there is one called "Tasks: Configure Task Runner", and select it.
+For every project, VSCode allows the user to configure how to build and test (or say that it never defines how you build your project), Press `F1`{: .key} and find "task" and there is one called "Tasks: Configure Task Runner", and select it.
 
 VSCode will generate a .vscode folder and there is tasks.json.
 
