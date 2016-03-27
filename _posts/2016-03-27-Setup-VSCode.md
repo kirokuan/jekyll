@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Setu VSCode for typescript project"
+title: "Setup VSCode for typescript project"
 date: 2016-03-27 11:04:06
 tags: VScode Typescript
 description: Setup VSCode for typescript project
