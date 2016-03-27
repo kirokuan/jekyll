@@ -30,7 +30,7 @@ use `Ctrl`{: .key}+`Shift`{:.key}+`B`{:.key} can trigger the build,
  
  
 
-if you need you project can be tested upon the hotkey , can use the config like
+if you need the project can be tested upon the hotkey , can use the config like
 
 {% highlight json %}
 {
