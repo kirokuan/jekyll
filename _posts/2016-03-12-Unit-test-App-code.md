@@ -61,3 +61,4 @@ and add website.targets in the root of test solution.
 {% endhighlight xml %}
 
 
+Actually, the 2nd way is much better that 1st one, since building doesn't clear all prebuild files.
