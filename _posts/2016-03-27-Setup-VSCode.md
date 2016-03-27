@@ -15,29 +15,30 @@ For every project, VSCode allows the user to configure how to build and test (or
 VSCode will generate a .vscode folder and there is tasks.json.
 
 If all you need is build command,jsut use
+
 {% highlight json %}
 {
 	"version": "0.1.0",
-
     "command":"tsc",
 	"isShellCommand": false,
 	"showOutput": "always",
-     "args":[".","-p","--removeComments"]
+    "args":[".","-p","--removeComments"]
 }
 {% endhighlight json %}
-use `Ctrl`{: .key}+`Shift`{:.key}+`B`{:.key} can trigger the build,
 
+use `Ctrl`{: .key}+`Shift`{:.key}+`B`{:.key} can trigger the build,
+ 
+ 
 
 if you need you project can be tested upon the hotkey , can use the config like
+
 {% highlight json %}
 {
 	"version": "0.1.0",
     "command":"cmd",
 	"isShellCommand": false,
-
 	"showOutput": "always",
-
-     "args":["/C"],
+    "args":["/C"],
     "tasks": [
         {
              //CHILDREN WITH COMMAND ;)
@@ -50,11 +51,13 @@ if you need you project can be tested upon the hotkey , can use the config like
             "taskName": "test",
             "suppressTaskName": true,
             "isTestCommand": true,
-          
-            "args": ["chutzpah.console.exe D:\\testScript\\Nike-wl\\Nike-wl\\NikeWLUnitTest\\"]
+            //define whatever to test project
+            "args": ["chutzpah.console.exe testfolder"]
         }
     ]
 }  
 {% endhighlight json %}
 
-once `Ctrl`{: .key}+`Shift`{:.key}+`T`{:.key} clicked, the task with  "isTestCommand": true will be triggered.
+once `Ctrl`{: .key}+`Shift`{:.key}+`T`{:.key} clicked, the task with  "isTestCommand": true will be triggered. 
+
+P.S. "tsc -p ." is supported after typescrit 1.5.
