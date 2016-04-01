@@ -22,7 +22,22 @@
 
 	// args is the HelloWorld program to compile.
 	"args": ["push"],
-
+     "tasks": [
+    {
+      // Build task, Ctrl+Shift+B
+      // "npm install --loglevel info"
+      "taskName": "push",
+      "isBuildCommand": true,
+      "args": ["push"]
+    },
+    {
+      // Test task, Ctrl+Shift+T
+      // "npm test"
+      "taskName": "cred",
+      "isTestCommand": true,
+      "args": ["config","--global","credential.helper","wincred"]
+    }
+  ],
 	// use the standard tsc problem matcher to find compile problems
 	// in the output.
 	"problemMatcher": "$tsc"
