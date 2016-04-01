@@ -21,7 +21,7 @@ Most common problem is reference to external library,like jQuery..., Since most 
 
 {% highlight js %}
     /// <reference path="defition/jquery.d.ts" />
-{% endhighlight js %}
+{% endhighlight %}
 
 Even though the definition file is absent, use command to generate the definition 
 
@@ -36,7 +36,7 @@ For the global object that is not defined in the file in project,can define them
     interface Window {
         $:Jquery
     }
-{% endhighlight js %}
+{% endhighlight %}
 
 It takes a lot of effort to clear up the codebase to make it can be compiled.
 
@@ -50,7 +50,7 @@ It takes a lot of effort to clear up the codebase to make it can be compiled.
         ...
     }
     
-{% endhighlight js %}
+{% endhighlight %}
 
 So to make it compatible with old code and runnable before all javascript is converted to typescript, the workaround is to avoid to use the keyword like export/require...since once use these keywords, compiler will convert the code with RequireJS style.
 
