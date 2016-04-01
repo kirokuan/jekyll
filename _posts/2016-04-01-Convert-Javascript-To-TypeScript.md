@@ -25,6 +25,7 @@ Most common problem is reference to external library,like jQuery..., Since most 
 {% endhighlight javascript %}
 
 Even though the definition file is absent, use command to generate the definition 
+
 {% highlight %}
     tsc -d file
 {% endhighlight %}  
@@ -39,6 +40,7 @@ For the global object that is not defined in the file in project,can define them
 {% endhighlight javascript %}
 
 It takes a lot of effort to clear up the codebase to make it can be compiled.
+
 {% highlight javascript %}
 
     function test(a){...} 
