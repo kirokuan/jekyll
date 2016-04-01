@@ -34,7 +34,8 @@ For the global object that is not defined in the file in project,can define them
 
 {% highlight js %}
     interface Window {
-        $:Jquery
+        $:Jquery,
+        $func:()=>{} // global function
     }
 {% endhighlight %}
 
