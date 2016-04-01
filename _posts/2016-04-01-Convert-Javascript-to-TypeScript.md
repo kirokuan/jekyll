@@ -19,9 +19,9 @@ it's very easy to convert all js to ts ideally. However, most of files I handled
 
 Most common problem is reference to external library,like jQuery..., Since most of Library provide their definition now, include them in the header.
 
-{% highlight javascript %}
+{% highlight js %}
     /// <reference path="defition/jquery.d.ts" />
-{% endhighlight javascript %}
+{% endhighlight js %}
 
 Even though the definition file is absent, use command to generate the definition 
 
@@ -32,15 +32,15 @@ Even though the definition file is absent, use command to generate the definitio
 For the global object, if tconfig is defined (that mean the whole folder is considered as a project),  variable can be used in other files. 
 For the global object that is not defined in the file in project,can define them in the window interface
 
-{% highlight javascript %}
+{% highlight js %}
     interface Window {
         $:Jquery
     }
-{% endhighlight javascript %}
+{% endhighlight js %}
 
 It takes a lot of effort to clear up the codebase to make it can be compiled.
 
-{% highlight javascript %}
+{% highlight js %}
 
     function test(a){...} 
     test(); ///typescript alert error
@@ -50,7 +50,7 @@ It takes a lot of effort to clear up the codebase to make it can be compiled.
         ...
     }
     
-{% endhighlight javascript %}
+{% endhighlight js %}
 
 So to make it compatible with old code and runnable before all javascript is converted to typescript, the workaround is to avoid to use the keyword like export/require...since once use these keywords, compiler will convert the code with RequireJS style.
 

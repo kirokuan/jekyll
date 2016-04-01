@@ -21,7 +21,7 @@
 	"showOutput": "always",
 
 	// args is the HelloWorld program to compile.
-	"args": ["push"],
+	//"args": ["push"],
      "tasks": [
     {
       // Build task, Ctrl+Shift+B
@@ -37,10 +37,10 @@
       "isTestCommand": true,
       "args": ["config","--global","credential.helper","wincred"]
     }
-  ],
+  ]
 	// use the standard tsc problem matcher to find compile problems
 	// in the output.
-	"problemMatcher": "$tsc"
+	//"problemMatcher": "$tsc"
 }
 
 // A task runner that calls the Typescript compiler (tsc) and
