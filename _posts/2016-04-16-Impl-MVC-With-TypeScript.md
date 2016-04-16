@@ -1,57 +1,118 @@
 ---
 layout: post
-title: "Convert Javascript to TypeScript"
-date: 2016-04-01 00:04:06
+title: "Implement MVC With TypeScript"
+date: 2016-04-16 00:04:06
 tags: Javascript Typescript
-description: Convert Javascript to TypeScript
+description: Implement MVC With TypeScript
 ---
 
-Currently, we got batch of javascript I wanted to convert them to typescript for better maintainence.
-All javascript syntax is compatiable in Typescript.
- 
-So with cmd command 
+Since the TypeScript Support inheritance, implementing MVC with javascript becomes easier!
 
-{% highlight bash %}
-    ren *.js *.ts
+Base classes:
+{% highlight javascript %}
+interface IEventDispatcher<T>{
+  // maintain a list of listeners
+    addEventListener(theEvent: T, theHandler:any);
+
+  // remove a listener
+    removeEventListener(theEvent:T, theHandler:any);
+
+  // remove all listeners
+    removeAllListeners(theEvent:T);
+
+  // dispatch event to all listeners
+    dispatchAll(theEvent: T,data?:any);
+
+  // send event to a handler
+    dispatchEvent(theEvent: T, theHandler:any,data?:any);
+}
+
+class Dispatcher implements IEventDispatcher<string> {
+  private _eventHandlers = {};
+
+  // maintain a list of listeners
+  public addEventListener(theEvent:string, theHandler:any) {
+    this._eventHandlers[theEvent] = this._eventHandlers[theEvent] || [];
+    this._eventHandlers[theEvent].push(theHandler);
+  }
+
+  // remove a listener
+  removeEventListener(theEvent: string, theHandler:any) {
+    // TODO
+  }
+
+  // remove all listeners
+  removeAllListeners(theEvent: string) {
+    // TODO
+  }
+
+  // dispatch event to all listeners
+  dispatchAll(theEvent:string,data?:any) {
+    var theHandlers = this._eventHandlers[theEvent];
+    if(theHandlers) {
+      for(var i = 0; i < theHandlers.length; i += 1) {
+        this.dispatchEvent(theEvent, theHandlers[i],data);
+      }
+    }
+  }
+
+  // send event to a handler
+  dispatchEvent(theEvent: string, theHandler:any,data?:any) {
+    theHandler(theEvent);
+  }
+}
 {% endhighlight %}  
 
-it's very easy to convert all js to ts ideally. However, most of files I handled are long-standing so that they may contain various problems like some function is not used any more and use some broken reference...etc.
-
-Most common problem is reference to external library,like jQuery..., Since most of Library provide their definition now, include them in the header.
-
-{% highlight js %}
-    /// <reference path="defition/jquery.d.ts" />
-{% endhighlight %}
-
-Even though the definition file is absent, use command to generate the definition 
-
-{% highlight bash %}
-    tsc -d file
+{% highlight javascript %}
+    abstract class ModelBase implements IModel
+    {
+        static change:string="change";
+        private dispatcher:Dispatcher;
+        constructor(){
+            this.dispatcher=new Dispatcher();
+        }
+        addListener=(eventHandler:any)=>{
+            this.dispatcher.addEventListener(ModelBase.change,eventHandler);    
+        }
+        abstract getModel(): any;
+        modelChange=()=>{
+            this.dispatcher.dispatchAll(ModelBase.change);
+        }
+    }
+    class ViewBase{
+    protected Model:IModel;
+    constructor(model:IModel){
+        this.Model=model;
+    }
+}
 {% endhighlight %}  
 
-For the global object, if tconfig is defined (that mean the whole folder is considered as a project),  variable can be used in other files. 
-For the global object that is not defined in the file in project,can define them in the window interface
 
-{% highlight js %}
-    interface Window {
-        $:Jquery,
-        $func:()=>{} // global function
+For the class To inherit them:
+
+{% highlight javascript %}
+
+class Icon  extends  ModelBase{
+    open:boolean;
+    getModel(){
+       return {
+         isOpen:this.open
+       };
+   }
+}
+class MenuView extends ViewBase{
+    Menu:JQuery=$(".menu");
+    constructor(icon: IModel) {
+        super(icon);
+        this.Model.addListener(this.open);
     }
-{% endhighlight %}
-
-It takes a lot of effort to clear up the codebase to make it can be compiled.
-
-{% highlight js %}
-
-    function test(a){...} 
-    test(); ///typescript alert error
-
-    var x={a:"bbb"}
-    if(x.bb){ //// conpile error, since the property should be defined before used
-        ...
+    MenuOpen = ()=> {
+        // get model status
+        if(this.Model.getModel().Open){
+            this.Menu.fadeIn();
+        }else{
+            this.Menu.fadeOut();
+        }
     }
-    
-{% endhighlight %}
-
-So to make it compatible with old code and runnable before all javascript is converted to typescript, the workaround is to avoid to use the keyword like export/require...since once use these keywords, compiler will convert the code with RequireJS style.
-
+ }
+{% endhighlight %}  
