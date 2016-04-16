@@ -94,6 +94,9 @@ For the class To inherit them:
 
 class Icon  extends  ModelBase{
     open:boolean;
+    toggle=()=>{
+        this.open=!this.open;
+    }
     getModel(){
        return {
          isOpen:this.open
@@ -106,13 +109,18 @@ class MenuView extends ViewBase{
         super(icon);
         this.Model.addListener(this.open);
     }
-    MenuOpen = ()=> {
+    open = ()=> {
         // get model status
-        if(this.Model.getModel().Open){
+        if(this.Model.getModel().isOpen){
             this.Menu.fadeIn();
         }else{
             this.Menu.fadeOut();
         }
     }
  }
+ var iconModel;
+ $(document).ready(function(){
+    iconModel=new IconModel();
+    new  Icon(iconModel);
+ })
 {% endhighlight %}  
