@@ -15,7 +15,7 @@
 	"command": "git",
 
 	// The command is a shell script
-	"isShellCommand": true,
+	"isShellCommand": false,
 
 	// Show the output window only if unrecognized errors occur.
 	"showOutput": "always",
@@ -24,18 +24,16 @@
 	//"args": ["push"],
      "tasks": [
     {
-      // Build task, Ctrl+Shift+B
-      // "npm install --loglevel info"
+      
       "taskName": "push",
-      "isBuildCommand": true,
-      "args": ["push"]
+      "isBuildCommand": true
     },
     {
       // Test task, Ctrl+Shift+T
       // "npm test"
-      "taskName": "cred",
+      "taskName": "config",
       "isTestCommand": true,
-      "args": ["config","--global","credential.helper","wincred"]
+      "args": ["--global","credential.helper","wincred"]
     }
   ]
 	// use the standard tsc problem matcher to find compile problems
