@@ -17,6 +17,12 @@ If the project should be pushed to remote server, right click-> push
 At first time push, it prompts the dialog to ask you fill the information it needs
 In Git/Remote, You can set up all remote reposity.
 
+For credential, use
+
+{% highlight bash %}
+git  --global credential.helper wincred
+{% endhighlight %}  
+
 there is a easy description about how the credential works in Git.
 
 In Git Choose "Edit Systemwide GitConfig", and add the following in the file
