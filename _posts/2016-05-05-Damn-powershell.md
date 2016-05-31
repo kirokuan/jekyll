@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Use Git in Window"
+title: "Damn... Powershell"
 date: 2016-04-28 00:04:06
-tags: Git
-description: Use Git in Window
+tags: Powershell
+description: though about using Powershell
 ---
 
 Recently, for managing batch of servers, I started to use Powershell. It seemed it's like funcational language more. It also support some commonly used shortcut ,like >, %, ?.
