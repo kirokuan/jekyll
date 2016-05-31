@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Damn... Powershell"
+title: "Damn... Newline in Powershell"
 date: 2016-05-05 00:04:06
 tags: Powershell
 description: though about using Powershell
