@@ -8,7 +8,7 @@ description: maintaining index
 
 I added lot of indexes to database for weeks, I noticed that the time to update index for some of query may account for great part. 
 
-{% highlight sql %}
+{% highlight SQL %}
 SELECT OBJECT_NAME(S.[OBJECT_ID]) AS [OBJECT NAME], 
        I.[NAME] AS [INDEX NAME], 
        USER_SEEKS, 
@@ -26,7 +26,7 @@ it lists all the index for the database, and for the indexes that seek, scans, l
 
 The best cases for indexes is that the seeks is used most , then scans and lookup is used least.
 
-{% highlight sql %}
+{% highlight SQL %}
 SELECT OBJECT_NAME(OBJECT_ID), index_id,index_type_desc,index_level,
 avg_fragmentation_in_percent,avg_page_space_used_in_percent,page_count
 FROM sys.dm_db_index_physical_stats
