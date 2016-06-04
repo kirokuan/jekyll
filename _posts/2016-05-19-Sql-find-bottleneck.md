@@ -45,4 +45,7 @@ This can retrieve the wait info as well, and it shows that
 So x8 means there are 8 CXPACKET events
 I just looked up for this wait info for [CXPACKET](https://www.brentozar.com/archive/2013/08/what-is-the-cxpacket-wait-type-and-how-do-you-reduce-it/)
 
-There is a metaphor that query is to heavy, so it try to use mutithread to handle but eventually it cost much more.
+There is a great metaphor that query is to heavy, so it try to use mutithread to handle but eventually it cost much more.
+
+In this case, finally I added a non-clustered index to table it query to make it run faster so that maybe it doesn't need to exchange so maany packets.
+
