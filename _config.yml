@@ -35,7 +35,7 @@ url: http://kirokuan.github.com/
 #markdown: rdiscount
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
-permalink: pretty
+#permalink: pretty
 
 comments : true
 disqus : kirokuan
@@ -50,5 +50,12 @@ kramdown:
   hard_wrap: true
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+
+permalink: /:title/
+
+# The release of Jekyll Now that you're using
+version: v1.2.0
 gems:
-  -jekyll-paginate
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
