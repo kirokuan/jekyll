@@ -41,7 +41,7 @@ comments : true
 disqus : kirokuan
 # How many articles do you wish to appear on the front page:
 paginate: 3
-gems: [jekyll-paginate]
+gems: [jekyll-paginate,jekyll-tagging]
 tag_page_layout: tag_index
 tag_page_dir: tag
 # Exclude metadata and development time dependencies (like Grunt plugins)
