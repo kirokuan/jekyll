@@ -2,7 +2,7 @@
 layout: post
 title: "Draw Confusion Matrix with R"
 date: 2016-06-09 00:04:06
-tags:R Confusion-Matrix
+tags: R Confusion-Matrix
 description: Convert a confusion matrix from csv format to plot
 ---
 
