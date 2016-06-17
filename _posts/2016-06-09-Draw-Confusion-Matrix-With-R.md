@@ -16,6 +16,20 @@ confusion matrix format:
 
 There is  30 * 30 matrix
 
+{% highlight R %}
+require(ggplot2)
+
+input <- read.delim("confusion.csv", header=FALSE, sep=",")
+input.matrix <- data.matrix(input)
+
+colnames(input.matrix) = c("tired","happy","excited","bouncy","confused","awake","accomplised","anxious","sick","crazy","sad","exhuasted","bored","cold","lonely","loved","hopeful","hungry","crappy","busy","stressful","frustrated","relaxed","amused","content","cheerful","calm","contemplative","sleepy","depressed")
+rownames(input.matrix) = colnames(input.matrix)
+
+confusion <- as.data.frame(as.table(input.matrix))
+
+plot <- ggplot(confusion)
+plot + geom_tile(aes(x=Var1, y=Var2, fill=Freq)) + scale_x_discrete(name="Actual Class") + scale_y_discrete(name="Predicted Class") + scale_fill_gradient(breaks=seq(from=-.5, to=10, by=.2), low = "#581845", high = "#ffc300") + labs(fill="Normalized\nFrequency")
+{% endhighlight %}
 
 the last line *low = "#581845", high = "#ffc300"*  indicates that the color for highest value.
 
