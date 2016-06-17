@@ -51,8 +51,6 @@ kramdown:
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
 
-permalink: /:title/
-
 # The release of Jekyll Now that you're using
 version: v1.2.0
 gems:
