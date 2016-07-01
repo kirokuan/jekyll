@@ -28,6 +28,7 @@ Eventaully my analysis pattern look like
 	}
    
 And add GeoIp database to convert ip to geo position.
+
     geoip {
         source => "clientip"
         target => "geoip"
@@ -35,6 +36,7 @@ And add GeoIp database to convert ip to geo position.
         add_field => [ "[geoip][coordinates]", "%{[geoip][longitude]}" ]
         add_field => [ "[geoip][coordinates]", "%{[geoip][latitude]}"  ]
     }
+    
 Some tutorial used GeoLiteCity.dat, but GeoLiteCity.dat didn't work for my logstash, which always threw exception of wrong format.
 And I downloaded GeoLite2-City.mmdb from [their website](https://dev.maxmind.com/geoip/geoip2/geolite2/) 
 And for the data that need to be converted as number, adding them in *mutate* part
