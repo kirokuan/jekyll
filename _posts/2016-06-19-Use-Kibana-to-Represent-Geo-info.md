@@ -8,10 +8,9 @@ description: Use Kibana, Logstash to analyse log and build a Geo ditribution
 
 I tried to use ELK( ElasticSearch, Logstash and Kibana) to analyse the log and pushed them to Kibana and build a representation.
 
-Most steps are listed in the some tutorials like [this](https://www.digitalocean.com/community/tutorials/how-to-map-user-location-with-geoip-and-elk-elasticsearch-logstash-and-kibana)
-and I aimed at analysing the iis log.
+Most steps are listed in the some tutorials like [this](https://www.digitalocean.com/community/tutorials/how-to-map-user-location-with-geoip-and-elk-elasticsearch-logstash-and-kibana) or [this one for iis log](http://logz.io/blog/iis-log-analyzer/)
 
-I downloaded are
+I aimed at analysing the iis log,What I downloaded are
 
 * ElasticSearch 2.2
 * Logstash 5.0.0 alpha (not sure why the version jumped to 5???)
@@ -39,7 +38,7 @@ And add GeoIp database to convert ip to geo position.
     
 Some tutorial used GeoLiteCity.dat, but GeoLiteCity.dat didn't work for my logstash, which always threw exception of wrong format.
 And I downloaded GeoLite2-City.mmdb from [their website](https://dev.maxmind.com/geoip/geoip2/geolite2/) 
-And for the data that need to be converted as number, adding them in *mutate* part
+For the data that need to be converted as number, adding them in *mutate* part
 
     mutate {
 	    remove_field => [ "log_timestamp"]
@@ -49,4 +48,39 @@ And for the data that need to be converted as number, adding them in *mutate* pa
         convert => ["time_taken", "integer"]
     }
     
-and configure the template for index to convert the data with properly typing.
+and configure the template for index to convert the data with properly typing, or most property are string.
+In the above tutorial,it asked to download a template and make it as default template for index of logs.
+
+To Modify type, adding some property in the template request body:
+This s really important, since once the index is established, type can't be changed. Although there are some 3rd party software can backup index, it stil takes much time. 
+{% highlight json %}
+    {
+     ....
+            "properties": {
+               "@timestamp": {
+                  "type": "date"
+               },
+               "geoip": {
+                  "dynamic": true,
+                  "type": "object",
+                  "properties": {
+                     "location": {
+                        "type": "geo_point"
+                     }
+                  }
+               },
+               "offset": {
+                  "type": "long",
+                  "doc_values": "true"
+               },
+               "message": {
+                  "index": "analyzed",
+                  "type": "string"
+               },
+              *"time_taken"*: {
+                  "index": "analyzed",
+                  "type": "number"
+               }
+            }
+     }
+{% endhighlight %}
