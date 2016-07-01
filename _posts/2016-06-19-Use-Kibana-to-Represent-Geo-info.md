@@ -84,3 +84,12 @@ This s really important, since once the index is established, type can't be chan
             }
      }
 {% endhighlight %}
+
+And the index should  be *analyzed* then it can be applied in visualization.
+
+Sometime I encountered the error in Kibana
+
+![screenshot]({{ site.baseurl | prepend:site.url}}/images/KibanaError.png){: .center-image }*Error in Kibana*
+
+After I looked up in the internet, there are two types like browsername, browsername.raw for 1 attribute. When producing the visualization, we should use the one with *.raw*.
+ 
