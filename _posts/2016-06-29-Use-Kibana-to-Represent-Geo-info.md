@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Kibana to make a representation with Geo info"
+title: "Using Kibana to Represent Geo info"
 date: 2016-06-29 00:04:06
 tags: Kibana GeoIp
 description: Use Kibana, Logstash to analyse log and build a Geo ditribution 
