@@ -3,7 +3,7 @@ layout: post
 title: "Using Kibana to Represent Geo info"
 date: 2016-06-19 00:04:06
 tags: Kibana GeoIp Logstash ElasticSearch
-description: Use Elastic Stack: ElasticSeaarch,Kibana and  Logstash to analyse log and build a Geo ditribution 
+description: Use Elastic Stack to build a Geo ditribution 
 ---
 
 I tried to use ELK( ElasticSearch, Logstash and Kibana) to analyse the log and pushed them to Kibana and build a representation.
