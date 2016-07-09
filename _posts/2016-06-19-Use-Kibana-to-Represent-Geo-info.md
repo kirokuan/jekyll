@@ -145,7 +145,7 @@ To Modify type, adding some property in the template request body, and final tem
 
 And the index should  be *indexed* then it can be applied in visualization, and the part of *dynamic_templates* is quite critical. It makes the field typed as string that retained 2 field in data, one is original one ended with .raw, the other is analyzed one.
 
-Why this is important? because ElasticSearch by its nature is a search engine, it analyzed and tokenized all string it get. The problem here come, that url like http://example.com/  it considered it as "http","example","com","web"..ect. It's unfavorable when we want to see the url as a whole, so we need to use .raw version. 
+Why this is important? because ElasticSearch by its nature is a search engine, it analyzed and tokenized all string it get. The problem here come, that url like http://example.com/  it considered it as "http","example","com","web"..ect. It's unfavorable when we want to see the url as a whole, so we need to use .raw version. And there is a warning in Kibana as well, the analyzed one usually is not suit for plotting.
 
 If using the version analyzed,you encountered the error in Kibana
 
