@@ -33,7 +33,7 @@ $ScriptBlock = {
         $newfilename= ($filename+".new")
         $newnew= ($newfilename+".json")
         (cat $filename) -replace "$type",($type+"_new")  > $newfilename
-        [IO.File]::WriteAllLines($newnew,( gc $newfilename)) --only for remoing BOM here
+        [IO.File]::WriteAllLines($newnew,( gc $newfilename)) #only for removing BOM here
         elasticdump  --bulk=true  --input=$newnew --output=http://localhost:9200/my_index
         Remove-Item $newfilename
         Remove-Item $newnew
