@@ -41,7 +41,12 @@ $ScriptBlock = {
 }
 {% endhighlight %}
 
-Here just move "type" to "type_new", and $filename is just a intermediate temporary file. 
+Here just move "type1" to "type1_new", and $filename is just a intermediate temporary file. 
 
+Finally, after copying is done, we can remove original "type",since ElasticSearch 2.o above remove delete type api, we need [delete by query](https://www.elastic.co/guide/en/elasticsearch/plugins/current/delete-by-query-usage.html)
 
-
+We can use 
+{% highlight bash %}
+    Invoke-Webrequest -Method Delete -Uri "http://localhost:9200/my_index/type1/_query?q=type:type1" 
+{% endhighlight %}
+So the old one can be deleted.
