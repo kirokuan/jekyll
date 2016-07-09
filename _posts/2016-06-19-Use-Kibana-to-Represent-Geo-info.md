@@ -50,7 +50,7 @@ For the data that need to be converted as number, adding them in *mutate* part
 
 ## Template for Log
 
-Confuguring the template is most inportant thing to do here, since once the data or indice is created, the mapping can't be changed. Although there are some 3rd party software can backup index, it stil takes much time.     
+Confuguring the template is most important thing to do here, since once the data or indice is created, the mapping can't be changed. Although there are some 3rd party software can backup index, it stil takes much time.     
 configure the template for index to convert the data with properly typing, or most property are string.
 In the above tutorial,it asked to download a template and make it as default template for index of logs.
 
@@ -147,10 +147,8 @@ And the index should  be *indexed* then it can be applied in visualization, and 
 
 Why this is important? because ElasticSearch by its nature is a search engine, it analyzed and tokenized all string it get. The problem here come, that url like http://example.com/  it considered it as "http","example","com","web"..ect. It's unfavorable when we want to see the url as a whole, so we need to use .raw version. 
 
-
-Sometime I encountered the error in Kibana
+If using the version analyzed,you encountered the error in Kibana
 
 ![screenshot]({{ site.baseurl | prepend:site.url}}/images/KibanaError.png){: .center-image }*Error in Kibana*
 
-After I looked up in the internet, there are two types like browsername, browsername.raw for 1 attribute. When producing the visualization, we should use the one with *.raw*.
- 
+Changing to use .raw version, it's a correct one.
