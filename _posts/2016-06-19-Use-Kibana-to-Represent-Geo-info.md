@@ -3,7 +3,7 @@ layout: post
 title: "Using Kibana to Represent Geo info"
 date: 2016-06-19 00:04:06
 tags: Kibana GeoIp Logstash ElasticSearch
-description: Use Kibana, Logstash to analyse log and build a Geo ditribution 
+description: Use Elastic Stack: ElasticSeaarch,Kibana and  Logstash to analyse log and build a Geo ditribution 
 ---
 
 I tried to use ELK( ElasticSearch, Logstash and Kibana) to analyse the log and pushed them to Kibana and build a representation.
@@ -47,15 +47,62 @@ For the data that need to be converted as number, adding them in *mutate* part
         convert => ["bytesReceived", "integer"]
         convert => ["time_taken", "integer"]
     }
-    
-and configure the template for index to convert the data with properly typing, or most property are string.
+** Template for Log
+Confuguring the template is most inportant thing to do here, since once the data or indice is created, the mapping can't be changed. Although there are some 3rd party software can backup index, it stil takes much time.     
+configure the template for index to convert the data with properly typing, or most property are string.
 In the above tutorial,it asked to download a template and make it as default template for index of logs.
 
-To Modify type, adding some property in the template request body:
-This s really important, since once the index is established, type can't be changed. Although there are some 3rd party software can backup index, it stil takes much time. 
+To Modify type, adding some property in the template request body, and final template I used is
 {% highlight json %}
     {
-     ....
+   "iislog_template": {
+      "order": 0,
+      "template": "iislog*",
+      "settings": {
+         "index": {
+            "number_of_shards": "2"
+         }
+      },
+      "mappings": {
+         "_default_": {
+            "dynamic_templates": [
+               {
+                  "message_field": {
+                     "mapping": {
+                        "index": "analyzed",
+                        "omit_norms": true,
+                        "type": "string",
+                        "fields": {
+                           "raw": {
+                              "ignore_above": 256,
+                              "index": "not_analyzed",
+                              "type": "string"
+                           }
+                        }
+                     },
+                     "match_mapping_type": "string",
+                     "match": "message"
+                  }
+               },
+               {
+                  "string_fields": {
+                     "mapping": {
+                        "index": "analyzed",
+                        "omit_norms": true,
+                        "type": "string",
+                        "fields": {
+                           "raw": {
+                              "ignore_above": 256,
+                              "index": "not_analyzed",
+                              "type": "string"
+                           }
+                        }
+                     },
+                     "match_mapping_type": "string",
+                     "match": "*"
+                  }
+               }
+            ],
             "properties": {
                "@timestamp": {
                   "type": "date"
@@ -77,15 +124,27 @@ This s really important, since once the index is established, type can't be chan
                   "index": "analyzed",
                   "type": "string"
                },
-              *"time_taken"*: {
+               "time_taken": {
                   "index": "analyzed",
-                  "type": "number"
+                  "type": "long"
+               },
+               "timestamp": {
+                  "format": "yyyy-MM-dd HH:mm:ss",
+                  "index": "analyzed",
+                  "type": "date"
                }
             }
-     }
+         }
+      },
+      "aliases": {}
+   }
+}
 {% endhighlight %}
 
-And the index should  be *analyzed* then it can be applied in visualization.
+And the index should  be *indexed* then it can be applied in visualization, and the part of *dynamic_templates* is quite critical. It makes the field typed as string that retained 2 field in data, one is original one ended with .raw, the other is analyzed one.
+
+Why this is important? because ElasticSearch by its nature is a search engine, it analyzed and tokenized all string it get. The problem here come, that url like http://example.com/  it considered it as "http","example","com","web"..ect. It's unfavorable when we want to see the url as a whole, so we need to use .raw version. 
+
 
 Sometime I encountered the error in Kibana
 
