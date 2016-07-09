@@ -47,7 +47,9 @@ For the data that need to be converted as number, adding them in *mutate* part
         convert => ["bytesReceived", "integer"]
         convert => ["time_taken", "integer"]
     }
+
 ** Template for Log
+
 Confuguring the template is most inportant thing to do here, since once the data or indice is created, the mapping can't be changed. Although there are some 3rd party software can backup index, it stil takes much time.     
 configure the template for index to convert the data with properly typing, or most property are string.
 In the above tutorial,it asked to download a template and make it as default template for index of logs.
