@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Kibana to Represent Geo info"
+title: "Using Kibana to Represent info Combining Geographic infomation"
 date: 2016-06-19 00:04:06
 tags: Kibana GeoIp Logstash ElasticSearch
 description: Use Elastic Stack to build a Geo ditribution 
