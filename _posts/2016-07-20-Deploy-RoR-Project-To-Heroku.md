@@ -44,7 +44,7 @@ it will push code to Heroku. But I encountered a problem,that the terminal kept 
 I tried to key the username and password I used, but it failed. Finally, I found that
 key
 {% highlight bash %}
-*heroku auth:token*
+    heroku auth:token
 {% endhighlight %}
 
 and what it shows is password,and username is left as empty.
