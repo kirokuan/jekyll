@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Configure Selenium  as Mobile With Chrome  Driver and FlentAutomation"
+title: "Configure Selenium  as Mobile With Chrome  Driver and FluentAutomation"
 date: 2016-08-09 00:00:00
 tags: FluentAutomation mobile ChromeDriver Selenium C# Test
 description: How to configure with ChromeDriver wrapped with FluentAutomation
