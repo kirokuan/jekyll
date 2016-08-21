@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reloating ElasticSearch Index, Type with ElasticDump"
+title: "Relocating ElasticSearch Index, Type with ElasticDump"
 date: 2016-07-01 00:04:06
 tags: ElasticSearch ElasticDump Powershell
 description: Using ElasticSearch to move index 

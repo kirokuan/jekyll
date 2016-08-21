@@ -36,7 +36,7 @@ The benefit to use environment variable is that you can defineed settings by dif
 
 2. js loading problem: the article uses [fileupload plugin](http://blueimp.github.io/jQuery-File-Upload/), which includes at least 2 files. Loading order may be the problem, since fileupload.js depends on widget.js.
 
-The article just adds a "z." front of fileupload.js,it's kind of tricky. But I still encountered the another error showing "fileupload is not a method". Finally I found it's due to conflict again jQeury.UI, since I loaded it after widget.
+The article just adds a "z." front of fileupload.js,it's kind of tricky. But I still encountered the another error showing "fileupload is not a method". Finally I found it's due to conflict against jQeury.UI, since I loaded it after widget.
 
 But actually jquery.ui can coexist with jquery.widget with correct order.
 
