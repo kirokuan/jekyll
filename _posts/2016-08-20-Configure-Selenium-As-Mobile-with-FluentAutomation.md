@@ -31,15 +31,17 @@ It seemed quite easy if we can access ChromeDriver/
 
 {% highlight csharp %}
 
-    ChromeOptions chromeOptions = new ChromeOptions();
-    chromeOptions.EnableMobileEmulation("Apple iPad");
-    Driver = new ChromeDriver(chromeOptions); 
+    ChromeOptions chromeCapabilities = new ChromeOptions();         
+    chromeCapabilities.EnableMobileEmulation("Apple iPhone 6");    
+    IWebDriver driver = new ChromeDriver(chromeCapabilities);
 
 {% endhighlight %}
 
 But FluentAutomation also provide extra constructor
 
-![screenshot]({{ site.baseurl | prepend:site.url}}/images/2016-08-21_102922.png){: .center-image }*Query Result*
+![screenshot]({{ site.baseurl | prepend:site.url}}/images/2016-08-21_102922.png){: .center-image }*constructor of bootstrap*
+
+Although the type is not obvious, but it adds dictionary to ChromeOption
 
 {% highlight csharp %}
 
