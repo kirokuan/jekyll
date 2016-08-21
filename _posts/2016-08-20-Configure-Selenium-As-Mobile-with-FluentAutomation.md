@@ -7,6 +7,9 @@ description: How to configure with ChromeDriver wrapped with FluentAutomation
 ---
 
 So far, FluentAutomation seemeed to not support the Ipad/Android natually.
+If we want to simulate with "more real" environment, we can use Appium. 
+But with Appium, we may need more resource. So I just want to chrome to simulate what page look in mobile devices.
+
 With 
 
 {% highlight csharp %}
@@ -46,7 +49,7 @@ Although the type is not obvious, but it adds dictionary to ChromeOption
 {% highlight csharp %}
 
     var mobileEmulation = new Dictionary<string,object>();
-            mobileEmulation.Add("deviceName", "Google Nexus 5");// can donfigure different device
+            mobileEmulation.Add("deviceName", "Google Nexus 5");// can configure different devices
            
             var mobileOptions = new Dictionary<string,object>();
             mobileOptions.Add("mobileEmulation", mobileEmulation);
