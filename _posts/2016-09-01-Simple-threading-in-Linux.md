@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "simple Threading in Linux"
+title: "Simple Threading in Linux"
 date: 2016-09-01 00:00:00
 tags: Linux shell
 description: simple script to enable threading in Linux 
