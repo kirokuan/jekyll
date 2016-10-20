@@ -60,5 +60,10 @@ But some package(like karma-webpack) let the tests shared the same settings with
 
 and Karma also support to use other reporting package. 
 
+===Conclusion===
+
+Karma is compatible with its various packages including browsers, report, test framework, but is more complicated to setup.
+
+Chutzpah is setup much easilier and support development in window environment very well, like:it also support to run the test in Visual Studio. But it lacks the flexibility of configuraion.
 
 
