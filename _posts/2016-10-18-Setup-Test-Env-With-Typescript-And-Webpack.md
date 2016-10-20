@@ -54,7 +54,11 @@ While running the tests with Chutzpah, it created some temporary files and runni
 
 The another way to run test combining with webpack is using Karma. There is a [example](https://github.com/sethmcl/typescript-webpack-karma-mocha) to run karma with typescript/webpack/mocha.
 
-Although I followed the settings and made 1 , but eventually it failed. Karma is more coomplicated to setup.
+Although I followed the settings and made 1 , but eventually it failed. Karma is more coomplicated to setup. In brief, it used preprocessor to compiled typescript and pack them.
+
+But some package(like karma-webpack) let the tests shared the same settings with that of Typescript and Webpack, and karma also allows the tests executed on different browsers, which Chutzpah can't do.
+
+and Karma also support to use other reporting package. 
 
 
 
