@@ -2,7 +2,7 @@
 layout: post
 title: "Setup Test Environment with Typescript and Webpack"
 date: 2016-10-18 00:00:00
-tags: Typescript Javascript QUnit Webpack chutzpah requirejs karma
+tags: Typescript Javascript QUnit Webpack chutzpah requirejs karma tests
 description: Try to setup environment for typescript which is packed with webpack
 ---
 
@@ -46,5 +46,15 @@ I googled and found a framework called "Chutzpah", and it supports to test Types
 
 
 "dist" folder is the destination of compiled files. Before running the tests,"tsc" should be executed to compile the scripts, since the chutzpah is no longer to support to compile the script, so compiled part seemed redundant. 
+Since tsc compiled the script into module compatible with requirejs, including the require.js makes the tests works.
 
 Actually, the solution **is nothing to do with Webpack**. It compiled all single ".ts" into ".js" and just run test on ".js".
+
+While running the tests with Chutzpah, it created some temporary files and running it with Phantomjs.
+
+The another way to run test combining with webpack is using Karma. There is a [example](https://github.com/sethmcl/typescript-webpack-karma-mocha) to run karma with typescript/webpack/mocha.
+
+Although I followed the settings and made 1 , but eventually it failed. Karma is more coomplicated to setup.
+
+
+
