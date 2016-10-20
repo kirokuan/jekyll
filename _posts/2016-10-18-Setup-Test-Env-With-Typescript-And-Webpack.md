@@ -43,3 +43,8 @@ I googled and found a framework called "Chutzpah", and it supports to test Types
 }
 
 {% endhighlight %}
+
+
+"dist" folder is the destination of compiled files. Before running the tests,"tsc" should be executed to compile the scripts, since the chutzpah is no longer to support to compile the script. 
+
+Actually, the solution **is nothing to do with Webpack**. It compiled all single ".ts" into ".js" and just run test on ".js".
