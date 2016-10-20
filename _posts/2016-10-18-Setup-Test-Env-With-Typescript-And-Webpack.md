@@ -51,10 +51,17 @@ Although I followed the settings and made 1 , but I kept encountering the error.
     ERROR in Entry module not found: Error: Cannot resolve 'file' or 'directory'
 
 Finally I found that , in webpack.config.js
-    
-  resolve: {
-    extensions: ["", ".tsx", ".ts", ".jsx", ".js"]
-  },
+
+
+{% highlight json %}
+    {
+        ...
+        resolve: {
+            extensions: ["", ".tsx", ".ts", ".jsx", ".js"]
+        },
+    }
+{% endhighlight %}
+
 
 somehow,"" is nessassary.....,according to [this post](https://www.garysieling.com/blog/fixing-webpack-error-error-entry-module-not-found-error-cannot-resolve-file-directory-srcssl_searchentry-js-dprojectsimage-annotation), it's due to directory.
 
