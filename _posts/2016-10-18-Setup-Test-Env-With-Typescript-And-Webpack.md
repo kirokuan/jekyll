@@ -25,14 +25,14 @@ I googled and found a framework called "Chutzpah", and it supports to test Types
     "TestHarnessLocationMode": "SettingsFileAdjacent",
     "TypeScriptModuleKind": "AMD",
     "TestFileTimeout": "20000",
-    "Compile": {
+    /*"Compile": {
         "Extensions": [ ".ts" ],
         "ExtensionsWithNoOutput": [ ".d.ts" ],
          "Paths": [
             { "OutputPath": "dist" } 
         ]
 
-    },
+    },*/
     "References": [
        { "Path":"require.js" }
     ],
@@ -45,6 +45,6 @@ I googled and found a framework called "Chutzpah", and it supports to test Types
 {% endhighlight %}
 
 
-"dist" folder is the destination of compiled files. Before running the tests,"tsc" should be executed to compile the scripts, since the chutzpah is no longer to support to compile the script. 
+"dist" folder is the destination of compiled files. Before running the tests,"tsc" should be executed to compile the scripts, since the chutzpah is no longer to support to compile the script, so compiled part seemed redundant. 
 
 Actually, the solution **is nothing to do with Webpack**. It compiled all single ".ts" into ".js" and just run test on ".js".
