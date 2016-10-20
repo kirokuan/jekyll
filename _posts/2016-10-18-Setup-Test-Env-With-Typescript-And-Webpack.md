@@ -25,14 +25,6 @@ I googled and found a framework called "Chutzpah", and it supports to test Types
     "TestHarnessLocationMode": "SettingsFileAdjacent",
     "TypeScriptModuleKind": "AMD",
     "TestFileTimeout": "20000",
-    /*"Compile": {
-        "Extensions": [ ".ts" ],
-        "ExtensionsWithNoOutput": [ ".d.ts" ],
-         "Paths": [
-            { "OutputPath": "dist" } 
-        ]
-
-    },*/
     "References": [
        { "Path":"require.js" }
     ],
@@ -54,7 +46,19 @@ While running the tests with Chutzpah, it created some temporary files and runni
 
 The another way to run test combining with webpack is using Karma. There is a [example](https://github.com/sethmcl/typescript-webpack-karma-mocha) to run karma with typescript/webpack/mocha.
 
-Although I followed the settings and made 1 , but eventually it failed. Karma is more coomplicated to setup. In brief, it used preprocessor to compiled typescript and pack them.
+Although I followed the settings and made 1 , but I kept encountering the error. 
+
+    ERROR in Entry module not found: Error: Cannot resolve 'file' or 'directory'
+
+Finally I found that , in webpack.config.js
+    
+  resolve: {
+    extensions: ["", ".tsx", ".ts", ".jsx", ".js"]
+  },
+
+somehow,"" is nessassary.....,according to [this post](https://www.garysieling.com/blog/fixing-webpack-error-error-entry-module-not-found-error-cannot-resolve-file-directory-srcssl_searchentry-js-dprojectsimage-annotation), it's due to directory.
+
+In general,Karma is more coomplicated to setup,and if someone is unfamiliar with it, it's difficult to figure what is misconfigured. In brief, it used preprocessor to compiled typescript and pack them.
 
 But some package(like karma-webpack) let the tests shared the same settings with that of Typescript and Webpack, and karma also allows the tests executed on different browsers, which Chutzpah can't do.
 
