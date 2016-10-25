@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Remove the header of the reports in Jenkins"
-date: 2016-10-25 00:00:00
+date: 2016-10-24 00:00:00
 tags: Jenkins report
 description: remove the headers in Jenkins report to make it readable
 ---
