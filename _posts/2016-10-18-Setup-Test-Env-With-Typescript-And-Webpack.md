@@ -59,6 +59,7 @@ Finally I found that , in webpack.config.js
         resolve: {
             extensions: ["", ".tsx", ".ts", ".jsx", ".js"]
         },
+        ...
     }
 {% endhighlight %}
 
