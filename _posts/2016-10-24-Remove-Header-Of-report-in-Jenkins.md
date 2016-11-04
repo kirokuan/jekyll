@@ -12,6 +12,6 @@ I think it's reasonable to use the external library, since jenkins keeps the rep
 
 According to [official doc](https://wiki.jenkins-ci.org/display/JENKINS/Configuring+Content+Security+Policy), use
 
-    System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+    System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","script-src 'unsafe-inline'")
 
 and inputing the command in Jenkins console makes it work. 
