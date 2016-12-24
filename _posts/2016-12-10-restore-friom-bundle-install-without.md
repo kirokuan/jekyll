@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Restore bundle installed in RoR"
-date: 2016-10-24 00:00:00
-tags: Jenkins report
-description: remove the headers in Jenkins report to make it readable
+date: 2016-12-24 00:00:00
+tags: RoR Gem
+description: Restore bundle installed RoR
 ---
 
 Thse assignment is try to install GITLAB in a Linux. 
