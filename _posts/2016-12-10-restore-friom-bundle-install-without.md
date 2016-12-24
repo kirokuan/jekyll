@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Restore bundle installed in RoR"
-date: 2016-12-24 00:00:00
+date: 2016-12-10 00:00:00
 tags: RoR Gem
 description: Restore bundle installed RoR
 ---
