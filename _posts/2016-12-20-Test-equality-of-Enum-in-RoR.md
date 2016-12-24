@@ -37,10 +37,12 @@ in View, use string to compare
 {% highlight ruby %}
 
     <% if item.status == "Pending"%> # (o)
+    <% if item.status == 1%> # (x)
     <% if item.status == :Pending%> # (x)
     <% if item.status == Item.statuses[:Pending]%> # (x)
 
 {% endhighlight %}
 
-It seemed strange...
+None of them contribute runtime error, but it's always false. It seemed strange...
 
+My speculation is that it converts property into string for rendering.
