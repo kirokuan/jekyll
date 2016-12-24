@@ -29,16 +29,16 @@ in Controller,
     @items.status(Item.statuses[:Pending]) # (o)
 
 {% endhighlight %}
-Make sure it's #statuses#[:Pending] not
+Make sure it's status**es**[:Pending] not status
 
 
 in View, use string to compare
 
 {% highlight ruby %}
 
-    <% if item.Status == "Pending"%> # (o)
-    <% if item.Status == :Pending%> # (x)
-    <% if item.Status == Item.statuses[:Pending]%> # (x)
+    <% if item.status == "Pending"%> # (o)
+    <% if item.status == :Pending%> # (x)
+    <% if item.status == Item.statuses[:Pending]%> # (x)
 
 {% endhighlight %}
 
