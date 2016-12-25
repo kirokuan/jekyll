@@ -31,6 +31,8 @@ in Controller,
 {% endhighlight %}
 Make sure it's status**es**[:Pending] not status
 
+None of them contribute runtime error, but it's always false. It seemed strange...
+
 
 in View, use string to compare
 
@@ -40,9 +42,9 @@ in View, use string to compare
     <% if item.status == 1%> # (x)
     <% if item.status == :Pending%> # (x)
     <% if item.status == Item.statuses[:Pending]%> # (x)
-
+    <% if item.Pending? %> # (o)
+    <% if item.status.Pending? %> # (x) runtime error
+    
 {% endhighlight %}
-
-None of them contribute runtime error, but it's always false. It seemed strange...
 
 My speculation is that it converts property into string for rendering.

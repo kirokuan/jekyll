@@ -22,7 +22,7 @@ It throws the NotImplementationException, so I want to use Chrome to simulate th
 
 With FluentAutomation, Wwe can easily configure the selenium driver by adding in base constructor
 
-{% highlight csharp %}
+{% highlight csharp %} 
 
      SeleniumWebDriver.Bootstrap(
                     new Uri("http://localhost:9515/"),
