@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Make MVC web api compatible with www-url-encoded header"
+title: "short"
 date: 2016-12-30 00:00:00
 tags: C# MVC web-api header
 description: make MVC api support both  x-www-form-urlencoded or application/JSON
