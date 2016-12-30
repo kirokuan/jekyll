@@ -40,7 +40,9 @@ public class CustomizedHttpHandler : DelegatingHandler
 
 {% endhighlight %}
 
-Futher more, we also use RouteAttribute to make api look like .aspx.
+So we use the request header to judge if it use new or old format. 
+
+Futher, we also use RouteAttribute to make api look like .aspx.
 
 {% highlight csharp %}
 
