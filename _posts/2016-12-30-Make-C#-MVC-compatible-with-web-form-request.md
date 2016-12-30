@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Make C# MVC web api compatible with www-url-encoded header"
+title: "Make MVC web api compatible with www-url-encoded header"
 date: 2016-12-30 00:00:00
-tags: C# MVC  web-api
-description: make MVC api support both  Content-Type: application/x-www-form-urlencoded or JSON
+tags: C# MVC web-api
+description: make MVC api support both  Content-Type: application/x-www-form-urlencoded or application/JSON
 ---
 
 Recently, we migrated the old projects to new MVC web api. we preserved the the api that is implemented by web-form. There is no problem for api, since the router can redirect the erequest to them. However, for new api,we need to make is compatible with form-encoded format.
