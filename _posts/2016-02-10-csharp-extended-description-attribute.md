@@ -2,7 +2,7 @@
 layout: post
 title: "Extend Enum to use Description Attribute"
 date: 2016-02-10 12:04:06
-tags: csharp Enum
+tags: c# Enum
 description: how to extend enum method to make it can use description from attribute
 ---
 
