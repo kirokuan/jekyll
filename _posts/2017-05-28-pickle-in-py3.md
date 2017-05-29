@@ -1,31 +1,16 @@
 ---
 layout: post
-title: "Set Proxy for docker service"
-date: 2017-2-20 00:00:00
-tags: docker proxy
+title: "Pickle in py3"
+date: 2017-5-28 00:00:00
+tags: python
 description: 
 ---
 
-I encountered the problem how to set up proxy for docker while it's pulling.
+I tried to update a app to  py3. But there is import cPickle. I import cPickle, it showed  error.
 
-It seemed the way in Linux and Windows are different.
+And I asked the admin if he can help install cPickle. 
+But he tell me  that should use:
 
-{% highlight bash %}
-[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
-Restart-Service docker
-{% endhighlight %}
-
-
-in Linux, the proxy can be set @ /etc/systemd/system/docker.service.d/http-proxy.conf
-
-{% highlight bash %}
-[Service]
-Environment="HTTP_PROXY=http://address:port/"
-Environment="HTTPS_PROXY=https://address:port/"
-{% endhighlight %}
-
-then restart the docker
-
-{% highlight bash %}
-sudo systemctl restart docker
+{% highlight python %}
+     import _pickle as cPickle
 {% endhighlight %}
