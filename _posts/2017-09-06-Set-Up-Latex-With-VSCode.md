@@ -39,4 +39,4 @@ And open the folder which my Latex project located, and press `F1` to configure 
 
 The build script just calls pdflatex.exe, whcih is installed by Miktex. My entry file is thesis.tex, then after build finished, make the pdf open automatically. And there is another task called "push", which can push the project to git.
 
-There are some extension to provide the preview function from pdflatex, like LaTex Preview...etc.
+There are some extension to provide the preview function from pdflatex, like LaTex Preview...etc. I also install "Latex Language Support".
