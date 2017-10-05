@@ -10,7 +10,7 @@ Recently, I read the online book ["Microservice vs Service-Oriented Achetecture 
 
 and it compares the differences of the archeture:
 |microservice | SOA|
-|---|---|
+|-------|--------|
 |share as less as possible | shared as much as possible|
 |smaller, well-partitioned web-based systems  | large, complex, enterprise-wide systems |
 |protocol-aware heterogeneous interoperability|protocol-agnostic heterogeneous interoperability|
