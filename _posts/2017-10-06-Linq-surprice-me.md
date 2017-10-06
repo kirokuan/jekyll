@@ -40,4 +40,5 @@ This exceed time limit
 
 {% endhighlight %}
 
+Only difference is `ToList` I removed it, so it don't need to compute the real value.
 This passed more than 700ms, 12-13% . 
