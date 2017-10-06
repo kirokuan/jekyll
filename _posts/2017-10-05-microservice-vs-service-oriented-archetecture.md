@@ -19,3 +19,6 @@ and it compares the differences of the archeture:
 |protocol-aware heterogeneous interoperability|protocol-agnostic heterogeneous interoperability|
 ||contract decoupling|
 
+**Service orchestration** refers to the coordination of multiple services through a centralized mediator such as a service consumer or an integration hub
+
+**Service choreography** refers to the coordination of multiple service calls without a central mediator.
