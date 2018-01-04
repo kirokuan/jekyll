@@ -32,7 +32,7 @@ vi /etc/ssh/ssh_config
 
 and add 
 
-{% highlight  %}
+{% highlight bash %}
 
 Host * 
     IdentityFile /c/Users/<username>/.ssh/id_rsa
