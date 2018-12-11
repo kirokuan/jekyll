@@ -16,7 +16,7 @@ Originally, I think use fluentd as sidecar container is a good idea and easy. Wi
 
 But there are some backdraw to use sidecar:
 
-- every pod own its own docker, they can't share.
+- every pod own its own log collector docker, they can't be shared.
 - one of container down in the pod cause the whole pod to restart
 - diffult to maintain for different environment, ex: you may not collect log from dev or staging.
 
