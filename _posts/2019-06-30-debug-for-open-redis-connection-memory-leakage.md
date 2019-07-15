@@ -3,7 +3,7 @@ layout: post
 title: "Debug why redis connection increased and memory leakage in Redis  "
 date: 2019-06-30 00:00:00
 tags: GCP redis memory-leakage netstat
-description: 
+description: find the connection made by the containers
 ---
 
 Recently, we migrated the redis from other 3rd-party to memorystore. 
