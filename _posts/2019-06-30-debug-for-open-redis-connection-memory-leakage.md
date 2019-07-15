@@ -15,7 +15,7 @@ The other problem I encountered is that there is no netstat in our container, in
 
 I used some redis command to identify the problem is not about dataset storage.
 
-It's about the `client-ouput-buffer`. In that case, if we hosted Redis by ourselves, we can just configure it to close the connection when it come to hard-limit, the connection will be closed forcefully.
+It's about the `client-ouput-buffer`. In that case, if we hosted Redis by ourselves, we can just configure it to close the connection when it come to hard-limit, the connection will be closed forcefully. There are some metrials indicating that if we use some redis command like `keys`, `smsmebers`...etc, which generate large output. But after reviewing the application code, there is no sign of it, and it didn't happen before. So it may not be that case.
 
 Finally I went to the node, I use
 
