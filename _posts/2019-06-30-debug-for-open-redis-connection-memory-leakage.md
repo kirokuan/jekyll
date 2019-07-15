@@ -31,3 +31,4 @@ After listing all connections. I found something that the connection different f
 
 So my speculation is that our container create a pubsub but never unsubscribe it, so those connection remains and whenever the server publish new message to it. The message is left in RECV-Q, and that's why the output-limit is enlarged graduately.
 
+The difference between the 3rd-party and memorystore may be that memorystore may set unlimited for client-ouput-buffer pubsub while the default value of client-ouput-buffer pubsub is not unlimited.
