@@ -11,9 +11,11 @@ Recently, we migrated the redis from other 3rd-party to memorystore.
 After the migration, the memory kept growing until we restarted the servers(kill the pods).
 And the connection count keep increasing as well.
 Since there is multiple processes in our container, it's not easy to identify which process cause this problem.
-The other problem I encountered is that there is no netstat in our container, in the node there are multuple containers running concurrently.I used some redis command to identify the problem is not about dataset storage.
+The other problem I encountered is that there is no netstat in our container, in the node there are multuple containers running concurrently.
 
-It's about the client-ouput-buffer. In that case, if we hosted Redis by ourselves, we can just configure it to close the connection when it come to hard-limit, the connection will be closed forcefully.
+I used some redis command to identify the problem is not about dataset storage.
+
+It's about the `client-ouput-buffer`. In that case, if we hosted Redis by ourselves, we can just configure it to close the connection when it come to hard-limit, the connection will be closed forcefully.
 
 Finally I went to the node, I use
 
