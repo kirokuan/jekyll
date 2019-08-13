@@ -12,7 +12,9 @@ To set up a external read-replica of Gcloud instance.
 First of all, install the mysql instance in compute instance.
 
 I tried to syncronize a brand new instance in cloudsql without any full backup.
-This doesn't work, since the slave read the transaction to modify mysql.user table, which is not permissible. I couldn't modify `Executed_Gtid_Set` to skip the transaction either. I also tried recover the slave instance with `mysql` table, and all credentials were broken.
+This doesn't work, since the slave read the transaction to modify mysql.user table, which is not permissible. I couldn't modify `Executed_Gtid_Set` to skip the transaction either. I also tried recover the slave instance with `mysql` table, and all credentials were broken. 
+Or will encounter the error 'The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the 
+master has purged binary logs containing GTIDs that the slave requires.' This acutually caused by no recovery-conducted slave as well, so the slave can't know what gtid to start with.
 
 Therefore, setting up slave with full backup without credentials and other system info of master is necessary.
 
