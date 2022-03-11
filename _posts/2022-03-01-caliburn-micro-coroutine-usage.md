@@ -2,7 +2,7 @@
 layout: post
 title: "Coroutine usage of Caliburn.Micro"
 date: 2022-03-01 00:00:00
-tags: coroutine caliburn-micro
+tags: coroutine caliburn-micro C#
 description: Some usage of coroutine implemented by Caliburn.Micro
 ---
 
@@ -23,6 +23,7 @@ private IEnumerator<IResult> AppStart()
 }
 
 {% endhighlight %}
+
 The following 2 are identical except when the exception happens.
 {% highlight csharp %}
 
@@ -78,3 +79,17 @@ So when the `Completed` is called, the `Page1` is finished. While there are 2 ca
 The implementation is quite useful when we want to maintain the sequence of ViewModel Display.
 
 Conventional way is to use function triggered by the button, so if you get lot of Page1...10, then you need to put sequential bahavior in these pages function, it's something similar to callback hell. While with Coroutine, the function can be simplified as continue or not continue.
+
+And the Caliburn.Micro also provide to convert `Task` to `IResult` with `AsResult()`.
+IResult can be converted to Task as `AsTask()`.
+
+{% highlight csharp %}
+
+private IEnumerator<IResult> AppStart()
+{
+    yield return p1 = new Page1();
+    yield return Task.Delay(2000).AsResult();
+    yield return p2 = new Page2();
+}
+
+{% endhighlight %}
