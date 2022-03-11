@@ -25,7 +25,7 @@ social:
 baseurl: /jekyll
 google_analytics_key: UA-75073217-1
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
-url: http://kirokuan.github.com/
+url: https://kirokuan.github.com/
 
 #### Under the Hood Stuff #####
 
