@@ -6,7 +6,8 @@ tags: coroutine caliburn-micro
 description: Some usage of coroutine implemented by Caliburn.Micro
 ---
 
-Though the doc indicated that the `coroutine` exists for long before they have 4. But the only available doc seems is this [IResult and Coroutines](https://caliburnmicro.com/documentation/coroutines)
+Though the doc indicated that the `coroutine` exists for long before they have 4. But the only available doc seems is this [IResult and Coroutines](https://caliburnmicro.com/documentation/coroutines). While the doc seems not up to date, since `CoroutineExecutionContext` the signature is changed.
+
 In short, the author implemented `IResult` this interface to support Coroutine.
 
 {% highlight csharp %}
@@ -72,7 +73,7 @@ class Page1 : IResult
 
 When user click something on UI, PageDismiss will be triggered, once `Completed` this event is triggered, the function AppStart continues.
 
-So when the `Completed` is called, the `Page1` is finished. While there are 2 cases here, one is isOk=true, and the other is isOK=false. Where the former case, the process keeps going. When `WasCancelled` is true, the AppStart throws `TaskCancellationException` and the process is interrupted and Page2 is never executed. There is another field called `Error` which can indicates what kind of exception is thrown.
+So when the `Completed` is called, the `Page1` is finished. While there are 2 cases here, one is    `isOk=true`, and the other is `isOK=false`. Where the former case, the process keeps going. When `WasCancelled` is true, the AppStart throws `TaskCancellationException` and the process is interrupted and Page2 is never executed. There is another field called `Error` which can indicates what kind of exception is thrown.
 
 The implementation is quite useful when we want to maintain the sequence of ViewModel Display.
 
